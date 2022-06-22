@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+.number{
+  text-align: center;
+  padding-top: 50px;
+  font-size: 50px;
+}
+.count {
+  text-align: center;
+}
