@@ -4,5 +4,5 @@ type BodyTypeProps = {
 }
 
 export let Body = (props:BodyTypeProps) => {
-    return <div>{props.titleForBody}</div>
+    return <div>{}</div>
 }

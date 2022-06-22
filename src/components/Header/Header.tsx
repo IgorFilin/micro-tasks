@@ -5,5 +5,5 @@ type HeaderTypeProps = {
 }
 
 export let Header = (props:HeaderTypeProps) => {
-    return <div>{props.title}</div>
+    return <div>{}</div>
 }
