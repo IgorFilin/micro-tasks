@@ -1,16 +1,18 @@
 import classes from './NewComponents.module.css'
 import {Button} from "./Button/Button";
+import {FilterSpeedCars} from "../App";
 
 type NewComponentsTypeProps = {
     topCars: Array<Car>
     students: Array<Student>
+    ClickChangeSpeedCars:(speedCars:FilterSpeedCars)=> void
 }
 
 
 type Car = {
     manufacturer: String
     model: String
-    speed:number
+    speed:string
 }
 
 type Student = {
@@ -45,8 +47,8 @@ export let NewComponents = (props: NewComponentsTypeProps) => {
             })}
             </tbody>
         </table>
-        <Button name={'Speed 200'} callBack={}/>
-        <Button name={'Speed 100'} callBack={}/>
-        <Button name={'All Speed'} callBack={}/>
+        <Button name={'Speed 200'} callBack={() => props.ClickChangeSpeedCars('200')}/>
+        <Button name={'Speed 100'} callBack={() => props.ClickChangeSpeedCars('100')}/>
+        <Button name={'All Speed'} callBack={() => props.ClickChangeSpeedCars('All')}/>
     </div>
 }

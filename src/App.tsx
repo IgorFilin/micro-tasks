@@ -9,13 +9,13 @@ import {Money} from "./components/Money/Money";
 
 type CounterType = number
 export type FilterMoneyButton = 'All' | 'RUBLS' | 'Dollars'
-
+export type FilterSpeedCars = '200' | '100' | 'All'
 function App() {
 
     const topCars = [
-        {manufacturer: 'BMW', model: 'm5cs', speed: 200},
-        {manufacturer: 'Mercedes', model: 'e63s', speed: 100},
-        {manufacturer: 'Audi', model: 'rs6', speed: 200}
+        {manufacturer: 'BMW', model: 'm5cs', speed: '200'},
+        {manufacturer: 'Mercedes', model: 'e63s', speed: '100'},
+        {manufacturer: 'Audi', model: 'rs6', speed: '200'}
     ]
     const students = [
         {id: 1, name: "James", age: 8},
@@ -84,14 +84,20 @@ function App() {
     let [AllCars, SetAllCars] = useState(topCars)
     let [filterCars, setFilterCars] = useState('All')
 
-
-
+    let filteredCars = AllCars
+    if (filterCars === '200'){
+        filteredCars = AllCars.filter(el => el.speed === '200')
+    }
+    if (filterCars === '100'){
+        filteredCars = AllCars.filter(el => el.speed === '100')
+    }
+let ClickChangeSpeedCars = (speedCars:FilterSpeedCars) => setFilterCars(speedCars)
 
     return (
         <div>
             <Header title={'My header'}/>
             <Body titleForBody={'My body'}/>
-            <NewComponents topCars={topCars} students={students}/>
+            <NewComponents topCars={filteredCars} students={students} ClickChangeSpeedCars={ClickChangeSpeedCars}/>
             <Button name={'MyButtonComponent1'} callBack={() => button1Foo('igor')}/>
             <Button name={'MyButtonComponent2'} callBack={() => button2Foo('ivan')}/>
             <Button name={'Stupid button'} callBack={stupidButton}/>
