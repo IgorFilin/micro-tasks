@@ -1,4 +1,5 @@
 import classes from './NewComponents.module.css'
+import {Button} from "./Button/Button";
 
 type NewComponentsTypeProps = {
     topCars: Array<Car>
@@ -9,6 +10,7 @@ type NewComponentsTypeProps = {
 type Car = {
     manufacturer: String
     model: String
+    speed:number
 }
 
 type Student = {
@@ -19,7 +21,7 @@ type Student = {
 
 
 export let NewComponents = (props: NewComponentsTypeProps) => {
-    return <>
+    return <div>
         <ul>
             {props.students.map((el, index) => {
                 return <li key={index}>{el.name}:{el.age} </li>
@@ -43,5 +45,8 @@ export let NewComponents = (props: NewComponentsTypeProps) => {
             })}
             </tbody>
         </table>
-    </>
+        <Button name={'Speed 200'} callBack={}/>
+        <Button name={'Speed 100'} callBack={}/>
+        <Button name={'All Speed'} callBack={}/>
+    </div>
 }
