@@ -5,11 +5,16 @@ import {Body} from './components/Body/Body';
 import {NewComponents} from "./components/NewComponents";
 import {Button} from './components/Button/Button';
 import {Money} from "./components/Money/Money";
+import MyPosts from "./components/MyPosts/MyPosts";
+import Input from "./components/Input/Input";
+import ButtonInputa from "./components/ButtonInputa/ButtonInputa";
 
 
 type CounterType = number
+
 export type FilterMoneyButton = 'All' | 'RUBLS' | 'Dollars'
 export type FilterSpeedCars = '200' | '100' | 'All'
+
 function App() {
 
     const topCars = [
@@ -85,28 +90,41 @@ function App() {
     let [filterCars, setFilterCars] = useState('All')
 
     let filteredCars = AllCars
-    if (filterCars === '200'){
+    if (filterCars === '200') {
         filteredCars = AllCars.filter(el => el.speed === '200')
     }
-    if (filterCars === '100'){
+    if (filterCars === '100') {
         filteredCars = AllCars.filter(el => el.speed === '100')
     }
-let ClickChangeSpeedCars = (speedCars:FilterSpeedCars) => setFilterCars(speedCars)
+    let ClickChangeSpeedCars = (speedCars: FilterSpeedCars) => setFilterCars(speedCars)
 
     return (
         <div>
+            <h1 style={{textAlign: "center"}}>Task1</h1>
             <Header title={'My header'}/>
+            <hr></hr>
             <Body titleForBody={'My body'}/>
             <NewComponents topCars={filteredCars} students={students} ClickChangeSpeedCars={ClickChangeSpeedCars}/>
+            <hr></hr>
+            <h1 style={{textAlign: "center"}}>Task2</h1>
             <Button name={'MyButtonComponent1'} callBack={() => button1Foo('igor')}/>
             <Button name={'MyButtonComponent2'} callBack={() => button2Foo('ivan')}/>
             <Button name={'Stupid button'} callBack={stupidButton}/>
+            <hr></hr>
+            <h1 style={{textAlign: "center"}}>Task3</h1>
             <div className={'number'}>{numb}</div>
             <div className={'count'}>
                 <button onClick={onclickHandler}>Counter</button>
                 <button onClick={onclickHandlerNull}>0</button>
             </div>
+            <hr></hr>
+            <h1 style={{textAlign: "center"}}>Task4</h1>
             <Money allMoney={filterMoney} onClickHandlerMoney={onClickHandlerMoney}/>
+            <hr></hr>
+            <h1 style={{textAlign: "center"}}>Task5</h1>
+            <MyPosts value={false}/>
+            <MyPosts value={true}/>
+             <hr></hr>
         </div>
     )
 }
